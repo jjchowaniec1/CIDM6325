@@ -5,3 +5,7 @@
 /Django-3-by-Example-master.zip
 /FirstAssignment.py
 /FirstAssignment.zip
+
+#do not upload certs
+.crt
+.key
