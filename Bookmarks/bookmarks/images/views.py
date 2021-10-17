@@ -1,18 +1,17 @@
-from django.shortcuts import get_object_or_404, render, redirect
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from django.http import HttpResponse, JsonResponse
+from django.shortcuts import get_object_or_404
+from django.http import JsonResponse
 from django.views.decorators.http import require_POST
+from django.http import HttpResponse
 from django.core.paginator import Paginator, EmptyPage, \
                                   PageNotAnInteger
-
-from common.decorator import ajax_required
-
-from . models import Image
-from . forms import ImageCreateForm
+from common.decorators import ajax_required
+from .forms import ImageCreateForm
+from .models import Image
 
 
-# Create your views here.
 @login_required
 def image_create(request):
     if request.method == 'POST':
@@ -20,27 +19,32 @@ def image_create(request):
         form = ImageCreateForm(data=request.POST)
         if form.is_valid():
             # form data is valid
-            cd = form.cleaned_data
             new_item = form.save(commit=False)
+
             # assign current user to the item
             new_item.user = request.user
             new_item.save()
             messages.success(request, 'Image added successfully')
+
             # redirect to new created item detail view
             return redirect(new_item.get_absolute_url())
     else:
         # build form with data provided by the bookmarklet via GET
         form = ImageCreateForm(data=request.GET)
+
     return render(request,
                   'images/image/create.html',
                   {'section': 'images',
                    'form': form})
 
+
 def image_detail(request, id, slug):
     image = get_object_or_404(Image, id=id, slug=slug)
-    return render(request, 'images/image/detail.html',
+    return render(request,
+                  'images/image/detail.html',
                   {'section': 'images',
                    'image': image})
+
 
 @ajax_required
 @login_required
@@ -60,10 +64,11 @@ def image_like(request):
             pass
     return JsonResponse({'status':'error'})
 
+
 @login_required
 def image_list(request):
     images = Image.objects.all()
-    paginator = Paginator(images, 8)
+    paginator = Paginator(images, 1)
     page = request.GET.get('page')
     try:
         images = paginator.page(page)
@@ -77,13 +82,10 @@ def image_list(request):
             return HttpResponse('')
         # If page is out of range deliver last page of results
         images = paginator.page(paginator.num_pages)
-        if request.is_ajax():
+    if request.is_ajax():
         return render(request,
                       'images/image/list_ajax.html',
                       {'section': 'images', 'images': images})
     return render(request,
                   'images/image/list.html',
                    {'section': 'images', 'images': images})
-
- 
-
