@@ -83,15 +83,15 @@
                     <li>DL (Delta Airlines)</li>
                     <li>UA (United Airlines)</li>
                     <li>WN (Southwest Airlines)</li>
-                    <li><a href=" {% url 'pax_january' %} "> January</a></li>
-                    <li><a href=" {% url 'pax_february' %} "> February</a></li>
-                    <li><a href=" {% url 'pax_march' %} "> March</a></li>
-                    <li><a href=" {% url 'pax_april' %} "> April</a></li>
-                    <li><a href=" {% url 'pax_may' %} "> May</a></li>
-                    <li><a href=" {% url 'pax_june' %} "> June</a></li>
-                    <li><a href=" {% url 'pax_july' %} "> July</a></li>
-                    <li><a href=" {% url 'pax_all' %} ">Rank order for the above mentioned airlines with all the months together</a></li>
+                    
                 </ul>
+                <li><a href=" {% url 'pax_january' %} "> January</a></li>
+                <li><a href=" {% url 'pax_february' %} "> February</a></li>
+                <li><a href=" {% url 'pax_march' %} "> March</a></li>
+                <li><a href=" {% url 'pax_april' %} "> April</a></li>
+                <li><a href=" {% url 'pax_may' %} "> May</a></li>
+                <li><a href=" {% url 'pax_june' %} "> June</a></li>
+                <li><a href=" {% url 'pax_all' %} ">All months together</a></li>
             </li>
             {% comment %} 
             * Find the average number of passengers for flights into:
@@ -101,14 +101,13 @@
                 * ATL (Atlanta)
                 * ORD (Chicago)
             {% endcomment %}
-            <li>Find the average number of passengers for flights into:
+            <li><a href=" {% url 'avg_pax' %} ">Find the average number of passengers for flights into:</a>
                 <ul>
                     <li>LAX (Los Angeles)</li>
                     <li>SFO (San Francisco)</li>
                     <li>DFW (Dallas-Fort Worth)</li>
                     <li>ATL (Atlanta)</li>
                     <li>ORD (Chicago)</li>
-                    <li><a href=" {% url 'avg_pax' %} ">Average number of passengers for flights into LAX, SFO, DFW, ATL, ORD</a></li>
                 </ul>
             </li>
 
@@ -120,14 +119,13 @@
                 * ANC (Anchorage)
                 * SDF (Louisville) 
             {% endcomment %}
-            <li> Find the average volume of freight for flights departing:
+            <li> <a href=" {% url 'avg_freight' %} ">Find the average volume of freight for flights departing:</a>
                 <ul>
                     <li>MIA (Miami)</li>
                     <li>MEM (Memphis)</li>
                     <li>JFK (New York JFK)</li>
                     <li>ANC (Anchorage)</li>
                     <li>SDF (Louisville)</li>
-                    <li><a href=" {% url 'avg_freight' %} ">Average volume of freight for flights departing MIA, MEM, JFK, ANC, SDF</a></li>
                 </ul>
             </li>
             {% comment %} 
