@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'home.apps.HomeConfig',
     'air_carrier_market_data.apps.AirCarrierMarketDataConfig',
+    'django.contrib.humanize',
 ]
 
 MIDDLEWARE = [

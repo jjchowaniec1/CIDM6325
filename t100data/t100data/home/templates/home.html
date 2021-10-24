@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>T100 Queries</title>
 </head>
-<body>
+<body style="background-color:grey;">
     <h1>Queries for T-100</h1>
     <div>
         <ul>
@@ -27,8 +27,8 @@
             {% endcomment %}
             <li>What are the top 5 airports in terms of:
                 <ul>
-                    <li>Total freight by origin</li>
-                    <li>Total freight by destination</li>
+                    <li><a href="{% url 'top5freightorigin' %}">Total freight by origin</a></li>
+                    <li><a href="{% url 'top5freightdestination' %}">Total freight by destination</a></li>
                 </ul>
             </li>
             {% comment %} 
@@ -38,8 +38,8 @@
             {% endcomment %}
             <li>What are the top 5 airports in terms of:
                 <ul>
-                    <li>Total mail by origin</li>
-                    <li>Total mail by destination</li>
+                    <li><a href="{% url 'top5mailorigin' %}">Total mail by origin</a></li>
+                    <li><a href="{% url 'top5maildestination' %}">Total mail by destination</a></li>
                 </ul>
             </li>
             {% comment %} 
@@ -49,8 +49,8 @@
             {% endcomment %}
             <li>What are the top 5 airports in terms of:
                 <ul>
-                    <li>Total distance by origin</li>
-                    <li>Total distance by destination</li>
+                    <li><a href="{% url 'top5distanceorigin' %}">Total distance by origin</a></li>
+                    <li><a href="{% url 'top5distancedestination' %}">Total distance by destination</a></li>
                 </ul>
             </li>    
             {% comment %} 
@@ -61,12 +61,12 @@
             * Which airline reported the most mail carried?
             * Which airline reported the longest flight distance?     
             {% endcomment %}
-            <li>Which airport reported the most passengers by month?</li>
+            <li><a href=" {% url 'toppax_month' %} ">Which airport reported the most passengers by month?</a></li>
             <li><a href=" {% url 'topdistance_month' %} ">Which airport reported the longest distance by month?</a></li>
-            <li>Which airline reported the most freight carried?</li>
-            <li>Which airline reported the most passengers carried?</li>
-            <li>Which airline reported the most mail carried?</li>
-            <li>Which airline reported the longest flight distance?</li>
+            <li><a href=" {% url 'top_freight' %} ">Which airline reported the most freight carried?</a></li>
+            <li><a href=" {% url 'top_pax' %} ">Which airline reported the most passengers carried?</a></li>
+            <li><a href=" {% url 'top_mail' %} ">Which airline reported the most mail carried?</a></li>
+            <li><a href=" {% url 'max_distance' %} ">Which airline reported the longest flight distance?</a></li>
 
             {% comment %} 
             * Rank order passengers carried, by month, for these airlines:
@@ -83,6 +83,14 @@
                     <li>DL (Delta Airlines)</li>
                     <li>UA (United Airlines)</li>
                     <li>WN (Southwest Airlines)</li>
+                    <li><a href=" {% url 'pax_january' %} "> January</a></li>
+                    <li><a href=" {% url 'pax_february' %} "> February</a></li>
+                    <li><a href=" {% url 'pax_march' %} "> March</a></li>
+                    <li><a href=" {% url 'pax_april' %} "> April</a></li>
+                    <li><a href=" {% url 'pax_may' %} "> May</a></li>
+                    <li><a href=" {% url 'pax_june' %} "> June</a></li>
+                    <li><a href=" {% url 'pax_july' %} "> July</a></li>
+                    <li><a href=" {% url 'pax_all' %} ">Rank order for the above mentioned airlines with all the months together</a></li>
                 </ul>
             </li>
             {% comment %} 
@@ -100,6 +108,7 @@
                     <li>DFW (Dallas-Fort Worth)</li>
                     <li>ATL (Atlanta)</li>
                     <li>ORD (Chicago)</li>
+                    <li><a href=" {% url 'avg_pax' %} ">Average number of passengers for flights into LAX, SFO, DFW, ATL, ORD</a></li>
                 </ul>
             </li>
 
@@ -118,14 +127,15 @@
                     <li>JFK (New York JFK)</li>
                     <li>ANC (Anchorage)</li>
                     <li>SDF (Louisville)</li>
+                    <li><a href=" {% url 'avg_freight' %} ">Average volume of freight for flights departing MIA, MEM, JFK, ANC, SDF</a></li>
                 </ul>
             </li>
             {% comment %} 
             * What city pairs represent the most freight carried for the longest distance?
             * What city pairs represent the most mail carried for the shortest distance?
             {% endcomment %}
-            <li>What city pairs represent the most freight carried for the longest distance?</li>
-            <li>What city pairs represent the most mail carried for the shortest distance?</li>
+            <li>What airport pairs represent the most freight carried for the longest distance? <a href=" {% url 'long_freight' %} ">These Airport pairs</a></li>
+            <li>What airport pairs represent the most mail carried for the shortest distance? <a href=" {% url 'short_freight' %} ">These Airport pairs</a></li>
         </ul>
     </div>
 </body>

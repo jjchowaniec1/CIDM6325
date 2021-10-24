@@ -58,13 +58,15 @@
                                 May
                             {% elif item.month == 6 %}
                                 June
+                            {% elif item.month == 7 %}
+                                July
                             {% endif %}
                         </td>
                         <td>{{ item.orig_iata_code }}</td>
                         <td>{{ item.orig_city_name }}</td>
                         <td>{{ item.dest_iata_code }}</td>
                         <td>{{ item.dest_city_name }}</td>            
-                        <td>{{ item.total_distance | intcomma }}</td>
+                        <td>{{ item.total_mdistance | intcomma }}</td>
                     </tr>
                 {% endfor %}
             {% endfor %}

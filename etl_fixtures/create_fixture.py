@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 import csv
 import json
 import os
@@ -123,7 +122,7 @@ def write_data_to_django_fixture(outfile):
 
 def main():
 
-    infilename = '339949146_T_T100D_MARKET_US_CARRIER_ONLY.csv'
+    infilename = '553740210_T_T100D_MARKET_US_CARRIER_ONLY.csv'
     infilepath = Path(__file__).resolve().parent.joinpath('data/').joinpath(infilename)
     outfilename = 'marketdata.json'
     outfilepath = Path(__file__).resolve().parent.joinpath('data/').joinpath(outfilename)
