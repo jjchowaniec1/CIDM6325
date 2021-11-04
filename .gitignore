@@ -11,5 +11,11 @@
 *.crt
 *.key
 
+#skip other misc file types
+*.pptx
+*.docx
+*.m4a
+*.mp3
+
 Bookmarks/bookmarks/cert.crt
 Bookmarks/bookmarks/cert.key
